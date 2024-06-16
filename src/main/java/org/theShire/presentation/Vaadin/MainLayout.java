@@ -8,22 +8,16 @@ import com.vaadin.flow.component.html.Footer;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Header;
-import com.vaadin.flow.component.icon.Icon;
-import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.Scroller;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.HighlightConditions;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.RouterLink;
 import com.vaadin.flow.theme.lumo.LumoUtility;
+import org.theShire.presentation.Vaadin.views.CaseView;
 
-
-/**
- * The main view is a top-level placeholder for other views.
- */
+@PageTitle("The Shire | Five Panels")
 public class MainLayout extends AppLayout {
-
-//    public static GalerieService galerieService;
 
     private H2 viewTitle;
 
@@ -31,11 +25,6 @@ public class MainLayout extends AppLayout {
         setPrimarySection(Section.DRAWER);
         addDrawerContent();
         addHeaderContent();
-        initService();
-    }
-
-    private void initService() {
-//        galerieService = GalerieService.getInstance();
     }
 
     private void addHeaderContent() {
@@ -49,7 +38,7 @@ public class MainLayout extends AppLayout {
     }
 
     private void addDrawerContent() {
-        H1 appName = new H1("Company");
+        H1 appName = new H1("The Shire | Five Panels");
         appName.addClassNames(LumoUtility.FontSize.LARGE, LumoUtility.Margin.NONE);
         Header header = new Header(appName);
 
@@ -62,28 +51,24 @@ public class MainLayout extends AppLayout {
         VerticalLayout nav = new VerticalLayout();
         nav.setSpacing(true);
         nav.add(
-//                createNavItem("Hello", HelloWorldView.class, VaadinIcon.GLOBE),
-//                createNavItem("About", AboutView.class, VaadinIcon.FILE)
-
-                // TODO ergaenzen Sie hier Ihre Implementierung
-
+                createNavItem("Cases", CaseView.class)
+                // Navigationselemente
         );
 
         return nav;
     }
 
-    private RouterLink createNavItem(String label, Class<? extends Component> view,
-                                     VaadinIcon icon) {
-        RouterLink link = new RouterLink(view);
-        link.addClassName("nav-item");
+    private RouterLink createNavItem(String label, Class<? extends Component> view) {
+        RouterLink link = new RouterLink();
+        link.setRoute(view);
+        link.add(label);
         link.setHighlightCondition(HighlightConditions.locationPrefix());
-        link.add(new Icon(icon), new Text(" " + label));
         return link;
     }
 
     private Footer createFooter() {
         Footer layout = new Footer();
-
+        //Fußzeileninhalt ?
         return layout;
     }
 
