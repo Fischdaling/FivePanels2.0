@@ -5,6 +5,7 @@ import org.theShire.domain.exception.MedicalDoctorException;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,7 +14,7 @@ import static org.theShire.foundation.DomainAssertion.isInCollection;
 
 public class Knowledges {
     // list of legal knowledges that are good and confirmed
-    protected static Set<String> legalKnowledges;
+    public static Set<String> legalKnowledges;
     // the knowledge the user wants
     private String knowledge;
 

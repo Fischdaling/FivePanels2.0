@@ -1,7 +1,6 @@
 package org.theShire.presentation.Vaadin;
 
 import com.vaadin.flow.component.Component;
-import com.vaadin.flow.component.Text;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.html.Footer;
@@ -14,8 +13,8 @@ import com.vaadin.flow.router.HighlightConditions;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.RouterLink;
 import com.vaadin.flow.theme.lumo.LumoUtility;
-import org.theShire.presentation.Vaadin.views.CaseView;
-import org.theShire.presentation.Vaadin.views.CreateCaseView;
+import org.theShire.presentation.Vaadin.views.Case.CaseView;
+import org.theShire.presentation.Vaadin.views.User.UserView;
 
 @PageTitle("The Shire | Five Panels")
 public class MainLayout extends AppLayout {
@@ -53,7 +52,7 @@ public class MainLayout extends AppLayout {
         nav.setSpacing(true);
         nav.add(
                 createNavItem("Cases", CaseView.class),
-                createNavItem("Create Case", CreateCaseView.class) // Hinzufügen der CreateCaseView zur Navigation
+                createNavItem("User", UserView.class)
         );
 
         return nav;

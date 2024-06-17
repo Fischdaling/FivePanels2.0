@@ -1,16 +1,15 @@
-package org.theShire.presentation.Vaadin.views;
+package org.theShire.presentation.Vaadin.views.Case;
 
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-import org.theShire.domain.media.Content;
 import org.theShire.domain.medicalCase.Case;
 import org.theShire.domain.medicalDoctor.User;
-import org.theShire.foundation.Knowledges;
 import org.theShire.presentation.Vaadin.MainLayout;
 import org.theShire.service.CaseService;
 import org.theShire.service.UserService;
@@ -30,6 +29,7 @@ public class CreateCaseView extends VerticalLayout {
         FormLayout formLayout = new FormLayout();
         formLayout.add(titleField);
 
+        HorizontalLayout horizontalLayout = new HorizontalLayout();
         // Create a save button
         Button saveButton = new Button("Save", event -> {
             // Get the current logged-in user
@@ -51,9 +51,17 @@ public class CreateCaseView extends VerticalLayout {
 
             // Clear the form fields
             titleField.clear();
+
+            // Change back to Cases
+            getUI().ifPresent(ui -> ui.navigate(CaseView.class));
         });
 
+        Button cancelButton = new Button("Cancel",event -> {
+            getUI().ifPresent(ui -> ui.navigate(CaseView.class));
+        });
+        horizontalLayout.add(saveButton, cancelButton);
+        horizontalLayout.setAlignItems(Alignment.CENTER);
         // Add components to the layout
-        add(formLayout, saveButton);
+        add(formLayout, horizontalLayout);
     }
 }

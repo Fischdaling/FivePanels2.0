@@ -1,7 +1,14 @@
 package org.theShire.domain.media;
 
 
+import org.theShire.domain.exception.MediaException;
+
+import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 
 import static org.theShire.domain.exception.MediaException.exTypeMedia;
 import static org.theShire.foundation.DomainAssertion.greaterZero;
@@ -16,7 +23,8 @@ public class Media {
     private String altText;
     //defines teh resolution of a picture
     private String resolution;
-    BufferedImage image = null;
+    private byte[] imageData;
+    private BufferedImage image;
 
     public Media(int width, int height, String altText, String resolution) {
         setWidth(width);
@@ -24,23 +32,41 @@ public class Media {
         setAltText(altText);
         setResolution(resolution);
     }
-
-    public Media(String filename) {
-
-        setHeight(500);
+    public Media(String altText) {
         setWidth(500);
-        setAltText(filename);
+        setHeight(500);
+        setAltText(altText);
         setResolution("500x500");
-//        try {
-//            image = ImageIO.read(new File("src/main/resources/"+filename));
-//        } catch (IOException e) {
-//                throw new MediaException(e.getMessage());
-//        }
     }
+
+
+    public Media(InputStream inputStream, String fileName) {
+        try {
+            BufferedImage image = ImageIO.read(inputStream);
+            if (image == null) {
+                throw new MediaException("Invalid image file: " + fileName);
+            }
+            setWidth(image.getWidth());
+            setHeight(image.getHeight());
+            setAltText(fileName);
+            setResolution(width + "x" + height);
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            ImageIO.write(image,"png",byteArrayOutputStream);
+            this.imageData = byteArrayOutputStream.toByteArray();
+        } catch (IOException e) {
+            throw new MediaException("Error reading image file: " + e.getMessage());
+        }
+    }
+
 
     //getter and setter-----------------------
     public BufferedImage getImage() {
         return image;
+    }
+
+
+    public byte[] getImageData() {
+        return imageData;
     }
 
     public int getWidth() {

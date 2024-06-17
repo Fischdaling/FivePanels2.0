@@ -10,8 +10,8 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import org.theShire.domain.richType.Email;
 import org.theShire.domain.medicalDoctor.User;
+import org.theShire.presentation.Vaadin.views.Case.CaseView;
 import org.theShire.service.UserService;
-import org.theShire.presentation.Vaadin.MainLayout;
 
 @Route("")
 @PageTitle("Login")
