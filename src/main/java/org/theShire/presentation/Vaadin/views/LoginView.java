@@ -13,7 +13,7 @@ import org.theShire.domain.medicalDoctor.User;
 import org.theShire.service.UserService;
 import org.theShire.presentation.Vaadin.MainLayout;
 
-@Route(value = "login", layout = MainLayout.class)
+@Route("")
 @PageTitle("Login")
 public class LoginView extends VerticalLayout {
 
@@ -33,7 +33,7 @@ public class LoginView extends VerticalLayout {
                 UserService.userLoggedIn = user;
                 Notification.show("Login successful");
 
-                getUI().ifPresent(ui -> ui.navigate(MainLayout.class));
+                getUI().ifPresent(ui -> ui.navigate(CaseView.class));
             } catch (Exception e) {
                 Notification.show("Invalid email or password");
             }

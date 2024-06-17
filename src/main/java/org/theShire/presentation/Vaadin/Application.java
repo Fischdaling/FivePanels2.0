@@ -4,6 +4,10 @@ import com.vaadin.flow.component.page.AppShellConfigurator;
 import com.vaadin.flow.theme.Theme;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.theShire.service.CaseService;
+import org.theShire.service.UserService;
+
+import static org.theShire.service.UniversalService.initData;
 
 /**
  * The entry point of the Spring Boot application.
@@ -17,6 +21,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Application implements AppShellConfigurator {
 
     public static void main(String[] args) {
+        initData();
         SpringApplication.run(Application.class, args);
     }
 

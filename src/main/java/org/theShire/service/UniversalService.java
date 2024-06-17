@@ -28,7 +28,7 @@ public class UniversalService {
 //        loadChat();
 //        loadUser();
 //        loadCase();
-        System.out.println("Buy Premium to unlock this feature$$$");
+        System.out.println("Buy Premium to unlock this feature $$$");
     }
 
     public static void loadUser() {
