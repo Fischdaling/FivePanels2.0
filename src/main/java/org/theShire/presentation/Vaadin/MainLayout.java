@@ -15,6 +15,7 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.RouterLink;
 import com.vaadin.flow.theme.lumo.LumoUtility;
 import org.theShire.presentation.Vaadin.views.CaseView;
+import org.theShire.presentation.Vaadin.views.CreateCaseView;
 
 @PageTitle("The Shire | Five Panels")
 public class MainLayout extends AppLayout {
@@ -51,8 +52,8 @@ public class MainLayout extends AppLayout {
         VerticalLayout nav = new VerticalLayout();
         nav.setSpacing(true);
         nav.add(
-                createNavItem("Cases", CaseView.class)
-                // Navigationselemente
+                createNavItem("Cases", CaseView.class),
+                createNavItem("Create Case", CreateCaseView.class) // Hinzufügen der CreateCaseView zur Navigation
         );
 
         return nav;
@@ -68,7 +69,7 @@ public class MainLayout extends AppLayout {
 
     private Footer createFooter() {
         Footer layout = new Footer();
-        //Fußzeileninhalt ?
+        // Füge hier Fußzeileninhalt hinzu, wenn nötig
         return layout;
     }
 
