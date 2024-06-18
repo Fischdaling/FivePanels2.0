@@ -77,6 +77,8 @@ public class Chat extends BaseEntity {
         people.add(isNotNull(chatter, "chatter", exTypeMes));
     }
 
+
+
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Chat:").append(getEntityId()).append(System.lineSeparator());

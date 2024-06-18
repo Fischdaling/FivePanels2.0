@@ -1,14 +1,13 @@
 package org.theShire.domain.media;
 
 
+import com.vaadin.flow.component.html.Image;
+import com.vaadin.flow.server.StreamResource;
 import org.theShire.domain.exception.MediaException;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 
 import static org.theShire.domain.exception.MediaException.exTypeMedia;
 import static org.theShire.foundation.DomainAssertion.greaterZero;
@@ -24,7 +23,7 @@ public class Media {
     //defines teh resolution of a picture
     private String resolution;
     private byte[] imageData;
-    private BufferedImage image;
+    private Image image;
 
     public Media(int width, int height, String altText, String resolution) {
         setWidth(width);
@@ -60,10 +59,9 @@ public class Media {
 
 
     //getter and setter-----------------------
-    public BufferedImage getImage() {
+    public Image getImage() {
         return image;
     }
-
 
     public byte[] getImageData() {
         return imageData;
