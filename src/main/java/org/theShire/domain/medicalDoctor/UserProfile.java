@@ -22,6 +22,8 @@ public class UserProfile {
     private Location location;
     private Language language;
 
+    public UserProfile() {
+    }
 
     public UserProfile(Language language, Location location, Media profilePicture, Name firstName, Name lastName, EducationalTitle... educationalTitle) {
         this.language = language;
@@ -66,6 +68,29 @@ public class UserProfile {
         return language;
     }
 
+    public void setFirstName(Name firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(Name lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setEducationalTitles(List<EducationalTitle> educationalTitles) {
+        this.educationalTitles = educationalTitles;
+    }
+
+    public void setProfilePicture(Media profilePicture) {
+        this.profilePicture = profilePicture;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public void setLanguage(Language language) {
+        this.language = language;
+    }
 
     public void addEducationalTitle(EducationalTitle educationalTitle) {
         this.educationalTitles.add(isInCollection(educationalTitle, educationalTitles, "educationalTitle", exTypeUser));

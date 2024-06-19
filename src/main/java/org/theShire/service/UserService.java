@@ -7,13 +7,12 @@ import org.theShire.domain.medicalDoctor.User;
 import org.theShire.domain.medicalDoctor.UserProfile;
 import org.theShire.domain.medicalDoctor.UserRelationShip;
 import org.theShire.domain.richType.*;
-import org.theShire.foundation.Knowledges;
+import org.theShire.domain.richType.Knowledges;
 import org.theShire.presentation.Console.Main;
 import org.theShire.repository.UserRepository;
 
 import java.time.Instant;
 import java.util.*;
-import java.util.stream.Collectors;
 
 import static org.theShire.domain.exception.MedicalDoctorException.exTypeUser;
 import static org.theShire.foundation.DomainAssertion.isNotNull;
@@ -88,8 +87,14 @@ public class UserService {
     }
 
 
-    public static UserProfile updateProfile(Language language, Location location, Media profilePic, Name firstname, Name lastname, List<EducationalTitle> title) {
-        return new UserProfile(language, location, profilePic, firstname, lastname, title);
+    public static UserProfile updateProfile(UserProfile profile, Language language, Location location, Media profilePic, Name firstname, Name lastname, List<EducationalTitle> title) {
+        profile.setLanguage(language);
+        profile.setLocation(location);
+        profile.setProfilePicture(profilePic);
+        profile.setFirstName(firstname);
+        profile.setLastName(lastname);
+        profile.setEducationalTitles(title);
+        return profile;
     }
 
 
@@ -102,7 +107,7 @@ public class UserService {
         List<EducationalTitle> titles = educationalTitle;
         Media media = new Media(500, 400, picture, "500x400");
         Set<Knowledges> knowledges = specialization;
-        UserProfile profile = updateProfile(language, location, media, firstname, lastname, titles);
+        UserProfile profile = updateProfile(new UserProfile(), language, location, media, firstname, lastname, titles);
         User user = new User(uuid, password, email, profile, knowledges);
         userRepo.save(user);
         return user;

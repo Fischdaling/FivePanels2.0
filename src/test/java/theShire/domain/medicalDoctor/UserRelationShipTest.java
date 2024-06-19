@@ -7,7 +7,7 @@ import org.theShire.domain.medicalDoctor.User;
 import org.theShire.domain.medicalDoctor.UserRelationShip;
 import org.theShire.domain.messenger.Chat;
 import org.theShire.domain.richType.*;
-import org.theShire.foundation.Knowledges;
+import org.theShire.domain.richType.Knowledges;
 import org.theShire.service.ChatService;
 import org.theShire.service.UserService;
 

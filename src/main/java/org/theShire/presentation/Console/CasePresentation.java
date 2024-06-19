@@ -6,7 +6,7 @@ import org.theShire.domain.medicalCase.Answer;
 import org.theShire.domain.medicalCase.Case;
 import org.theShire.domain.medicalCase.CaseVote;
 import org.theShire.domain.medicalDoctor.User;
-import org.theShire.foundation.Knowledges;
+import org.theShire.domain.richType.Knowledges;
 import org.theShire.service.CaseService;
 import org.theShire.service.UserService;
 

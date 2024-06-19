@@ -2,7 +2,7 @@ package theShire.domain.richTypes;
 
 import org.junit.jupiter.api.Test;
 import org.theShire.domain.richType.*;
-import org.theShire.foundation.Knowledges;
+import org.theShire.domain.richType.Knowledges;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.theShire.domain.exception.MedicalDoctorException.exTypeUser;

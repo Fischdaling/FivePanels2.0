@@ -11,28 +11,19 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.component.upload.Upload;
 import com.vaadin.flow.component.upload.receivers.MultiFileMemoryBuffer;
-import com.vaadin.flow.data.provider.ListDataProvider;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.StreamResource;
 import org.theShire.domain.exception.MedicalDoctorException;
 import org.theShire.domain.media.Media;
-import org.theShire.domain.medicalCase.Case;
-import org.theShire.domain.medicalDoctor.User;
 import org.theShire.domain.richType.*;
-import org.theShire.foundation.Knowledges;
+import org.theShire.domain.richType.Knowledges;
 import org.theShire.presentation.Vaadin.MainLayout;
-import org.theShire.presentation.Vaadin.views.Case.CaseView;
-import org.theShire.service.CaseService;
 import org.theShire.service.UserService;
 
 import java.io.ByteArrayInputStream;
-import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 @Route(value = "create-user", layout = MainLayout.class)

@@ -4,7 +4,7 @@ import org.theShire.domain.BaseEntity;
 import org.theShire.domain.media.Content;
 import org.theShire.domain.medicalDoctor.User;
 import org.theShire.domain.messenger.Chat;
-import org.theShire.foundation.Knowledges;
+import org.theShire.domain.richType.Knowledges;
 
 import java.time.Instant;
 import java.util.*;

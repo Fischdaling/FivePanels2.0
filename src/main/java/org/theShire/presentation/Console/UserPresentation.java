@@ -6,7 +6,7 @@ import org.theShire.domain.media.Media;
 import org.theShire.domain.medicalDoctor.User;
 import org.theShire.domain.medicalDoctor.UserProfile;
 import org.theShire.domain.richType.*;
-import org.theShire.foundation.Knowledges;
+import org.theShire.domain.richType.Knowledges;
 import org.theShire.service.UserService;
 
 import java.time.Instant;
@@ -88,8 +88,7 @@ public class UserPresentation {
     public static void changeProfile() {
         User user = userLoggedIn;
         System.out.println(user.getProfile().toString());
-        UserProfile profile = enterUserProfile();
-        user.setProfile(profile);
+        user.setProfile(enterUserProfile());
         user.setUpdatedAt(Instant.now());
     }
 
@@ -106,7 +105,7 @@ public class UserPresentation {
         for (int j = 0; j < i; j++) {
             title.add(scan("Enter Title:", EducationalTitle::new));
         }
-        return UserService.updateProfile(language, location, profilePic, firstname, lastname, title);
+        return UserService.updateProfile(userLoggedIn.getProfile(),language, location, profilePic, firstname, lastname, title);
     }
 
 

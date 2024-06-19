@@ -6,7 +6,7 @@ import org.theShire.domain.medicalCase.Case;
 import org.theShire.domain.messenger.Chat;
 import org.theShire.domain.richType.Email;
 import org.theShire.domain.richType.Password;
-import org.theShire.foundation.Knowledges;
+import org.theShire.domain.richType.Knowledges;
 
 import java.time.Instant;
 import java.util.HashSet;

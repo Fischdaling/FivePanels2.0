@@ -8,7 +8,7 @@ import org.theShire.domain.medicalCase.Case;
 import org.theShire.domain.medicalCase.CaseVote;
 import org.theShire.domain.medicalCase.Vote;
 import org.theShire.domain.medicalDoctor.User;
-import org.theShire.foundation.Knowledges;
+import org.theShire.domain.richType.Knowledges;
 
 import java.io.*;
 import java.time.Instant;
